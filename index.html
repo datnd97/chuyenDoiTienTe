@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+        <p>Amount</p>
+        <input id="input" type="text" >
+        <p>From Currency</p>
+        <select name="country1" id="country1">
+            <option value="1" >Viet Nam</option>
+            <option value="23.000" >USA</option>
+        </select>
+        <p>To Currency</p>
+        <select name="country2" id="country2">
+           
+            <option value="23.000">USA</option>
+            <option value="1">Viet Nam</option>
+        </select>
+
+        <button id="button" onclick="ConvertMoney()">Convert</button>
+        <p id="ketqua"></p>
+    </form>
+
+
+
+
+    <script>
+    //  hoan thanh nut button
+        function ConvertMoney() {
+            var firstCountry = document.getElementById('country1').value;
+            var secondCountry = document.getElementById('country2').value;   
+            var input = getValueInput();
+            var rs = secondCountry * input;
+            showHTML = document.getElementById('ketqua');
+            if(firstCountry == 1 && secondCountry == 23.000)
+            {
+                showHTML.innerHTML = rs+".000";
+            }
+            else if(firstCountry == 1 && secondCountry == 1)
+            {
+                showHTML.innerHTML = input;
+            }
+            else if(firstCountry ==23.000 && secondCountry ==1)
+            {
+                showHTML.innerHTML = input / firstCountry;
+            }
+            else
+            {
+                showHTML.innerHTML = input;
+            }
+        
+         
+          
+        }
+        // lấy value của input nhập
+        function getValueInput()
+        {   
+            var x = document.getElementById('input').value;
+            return parseInt(x);
+        }
+    
+   
+    
+    
+    
+    </script>
+</body>
+</html>
